@@ -34,9 +34,7 @@ class StudentController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     */
+
     public function show(string $id)
     {
         try {
@@ -49,9 +47,6 @@ class StudentController extends Controller
     }
 
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(StudentUpdateRequest $request, int $id)
     {
         DB::beginTransaction();

@@ -7,10 +7,11 @@ use App\Http\Api\{
     StudentController
 };
 use \Illuminate\Support\Facades\Route;
+use OpenApi\Annotations as OA;
 
 
 Route::middleware('guest:api')->group(function () {
-    Route::post('login', LoginController::class);
+    Route::post('login', [LoginController::class, 'login']);
 
 });
 
@@ -27,9 +28,9 @@ Route::middleware('auth:api')
         Route::post('students/{student}/enroll', [StudentController::class, 'enroll']);
 
         Route::prefix('analytics')->group(function () {
-            Route::get('courses-top',[\App\Http\Api\AnalyticsController::class,'coursesTop']);
-            Route::get('students-top',[\App\Http\Api\AnalyticsController::class,'studentsTop']);
-            Route::get('totales',[\App\Http\Api\AnalyticsController::class,'totales']);
+            Route::get('courses-top', [\App\Http\Api\AnalyticsController::class, 'coursesTop']);
+            Route::get('students-top', [\App\Http\Api\AnalyticsController::class, 'studentsTop']);
+            Route::get('totales', [\App\Http\Api\AnalyticsController::class, 'totales']);
 
 //            Route::get('students-by-course', [AnalyticsController::class, 'studentsByCourse']);
 //            Route::get('courses-by-student', [AnalyticsController::class, 'coursesByStudent']);
