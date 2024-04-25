@@ -32,8 +32,6 @@ Route::middleware('auth:api')
             Route::get('students-top', [\App\Http\Api\AnalyticsController::class, 'studentsTop']);
             Route::get('totales', [\App\Http\Api\AnalyticsController::class, 'totales']);
 
-//            Route::get('students-by-course', [AnalyticsController::class, 'studentsByCourse']);
-//            Route::get('courses-by-student', [AnalyticsController::class, 'coursesByStudent']);
         });
 
     });
