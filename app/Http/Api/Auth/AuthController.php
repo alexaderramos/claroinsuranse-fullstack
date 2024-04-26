@@ -10,7 +10,11 @@ use Illuminate\Support\Facades\DB;
 use OpenApi\Annotations as OA;
 
 /**
- * @OA\Info(title="API docs", version="0.1")
+ * @OA\Info(
+ *     title="API docs",
+ *     version="0.1",
+ *     description="API documentation for the Test project"
+ * )
  * @OA\SecurityScheme(
  *     type="http",
  *     scheme="bearer",
