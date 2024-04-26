@@ -1,7 +1,7 @@
 <?php
 
 
-use App\Http\Api\Auth\LoginController;
+use App\Http\Api\Auth\AuthController;
 use App\Http\Api\{
     CourseController,
     StudentController
@@ -10,9 +10,19 @@ use \Illuminate\Support\Facades\Route;
 use OpenApi\Annotations as OA;
 
 
-Route::middleware('guest:api')->group(function () {
-    Route::post('login', [LoginController::class, 'login']);
+Route::prefix('auth')->group(function () {
+    Route::middleware('guest:api')->group(function () {
+        Route::post('login', [AuthController::class, 'login']);
+        Route::post('register', [AuthController::class, 'register']);
 
+
+    });
+
+    Route::middleware('auth:api')->group(function () {
+        Route::get('me', [AuthController::class, 'me']);
+        Route::post('logout', [AuthController::class, 'logout'])->middleware('auth:api');
+        Route::get('refresh', [AuthController::class, 'refresh'])->middleware('auth:api');
+    });
 });
 
 

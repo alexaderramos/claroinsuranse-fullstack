@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Course;
 use App\Models\CourseType;
 use App\Models\Student;
 use App\Models\User;
@@ -16,19 +17,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
 
-        /* User::factory()->create([
-             'name' => 'Test User',
-             'email' => 'test@example.com',
-         ]);*/
-
-       /* $this->call([
+        // first we seed the tables that have no foreign keys
+        $this->call([
             UserTableSeeder::class,
             CourseTypeTableSeeder::class,
-            CourseTableSeeder::class
-        ]);*/
+        ]);
 
+
+        User::factory(10)->create();
         Student::factory(10)->create();
+        Course::factory(10)->create();
+
+
     }
 }
