@@ -11,10 +11,10 @@ export interface BaseTopInterface {
 }
 
 export interface AnalyticsStudentsTopInterface extends BaseTopInterface {
-  total_courses: number;
+  courses_count: number;
 }
 
 
 export interface AnalyticsCoursesTopInterface extends BaseTopInterface {
-  total_students: number;
+  students_count: number;
 }

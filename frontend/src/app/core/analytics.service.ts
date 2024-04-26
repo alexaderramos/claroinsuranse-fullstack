@@ -22,11 +22,11 @@ export class AnalyticsService {
   }
 
   getTopStudents(): Observable<AnalyticsStudentsTopInterface[]> {
-    return this.http.get<AnalyticsStudentsTopInterface[]>(`${API_URL}/admin/analytics/top-students`);
+    return this.http.get<AnalyticsStudentsTopInterface[]>(`${API_URL}/admin/analytics/students-top`);
   }
 
   getTopCourses(): Observable<AnalyticsCoursesTopInterface[]> {
-    return this.http.get<AnalyticsCoursesTopInterface[]>(`${API_URL}/admin/analytics/top-courses`);
+    return this.http.get<AnalyticsCoursesTopInterface[]>(`${API_URL}/admin/analytics/courses-top`);
   }
 
 }
