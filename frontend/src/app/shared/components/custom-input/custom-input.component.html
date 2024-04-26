@@ -1,0 +1,92 @@
+<div [formGroup]="parentForm" class="w-100">
+  @if (labelText.length) {
+    <div class="d-flex justify-content-start align-items-baseline"
+         style="margin-bottom: 3px;"
+    >
+      <label class="" for="">{{ labelText }}</label>
+
+      @if (toolTip.length) {
+        <button class="btn-tooltip"  placement="right" ngbTooltip="{{toolTip}}">
+          <ng-icon
+            size="20px" name="ionHelpCircleOutline"></ng-icon>
+        </button>
+      }
+
+    </div>
+  }
+  <input [formControlName]="controlName"
+
+         (change)="eventChange($event)"
+         (input)="eventInput($event)"
+         (keyup)="eventKeyUp($event)"
+         (keyup.enter)="eventKeyEnter($event)"
+         [ngClass]="{'is-invalid': (parentForm.controls[controlName].invalid  && parentForm.controls[controlName].touched) || ( customValidatorName.length ? parentForm.hasError(customValidatorName) : false)   }"
+         [type]="typeInput"
+         class="form-control"
+         placeholder="{{placeholder}}">
+
+  @if(type === 'password'){
+    <div class="password-toggle">
+      <button class="password-toggle-btn" (click)="toggleShowPassword()"><ng-icon size="20px" [name]="showPassword ? 'ionEyeOutline': 'ionEyeOffOutline' "></ng-icon></button>
+    </div>
+  }
+
+
+  <!-- Custom validator -->
+
+  @if (customValidatorName.length && parentForm.hasError(customValidatorName)) {
+    <div class="invalid-feedback">
+      <span>{{ customValidatorMessage }}</span>
+    </div>
+  } @else if (parentForm.controls[controlName].invalid
+  && parentForm.controls[controlName].touched) {
+    <div class="invalid-feedback">
+      @if (parentForm.controls[controlName].errors?.['required']) {
+        <span>El campo es requerido</span>
+      } @else if (parentForm.controls[controlName].errors?.['email']) {
+        <span>El campo debe ser un email válido</span>
+      } @else if (parentForm.controls[controlName].errors?.['minlength']) {
+        <span>El campo debe tener al menos {{ parentForm.controls[controlName].errors?.['minlength'].requiredLength }}
+          caracteres</span>
+      } @else if (parentForm.controls[controlName].errors?.['maxlength']) {
+        <span>El campo debe tener como máximo {{ parentForm.controls[controlName].errors?.['maxlength'].requiredLength }}
+          caracteres</span>
+      } @else if (parentForm.controls[controlName].errors?.['pattern']) {
+        <span>El campo no cumple con el formato requerido</span>
+      } @else if (parentForm.controls[controlName].errors?.['min']) {
+        <span>El campo debe ser mayor o igual a {{ parentForm.controls[controlName].errors?.['min'].min }}</span>
+      } @else if (parentForm.controls[controlName].errors?.['max']) {
+        <span>El campo debe ser menor o igual a {{ parentForm.controls[controlName].errors?.['max'].max }}</span>
+      } @else if (parentForm.controls[controlName].errors?.['passwordsNotEqual']) {
+        <span>Las contraseñas no coinciden</span>
+      } @else if (parentForm.controls[controlName].errors?.['invalidDate']) {
+        <span>La fecha no es válida</span>
+      } @else if (parentForm.controls[controlName].errors?.['invalidTime']) {
+        <span>La hora no es válida</span>
+      } @else if (parentForm.controls[controlName].errors?.['invalidDateTime']) {
+        <span>La fecha y hora no son válidas</span>
+      } @else if (parentForm.controls[controlName].errors?.['invalidDateRange']) {
+        <span>El rango de fechas no es válido</span>
+      } @else if (parentForm.controls[controlName].errors?.['invalidTimeRange']) {
+        <span>El rango de horas no es válido</span>
+      } @else if (parentForm.controls[controlName].errors?.['invalidDateTimeRange']) {
+        <span>El rango de fechas y horas no es válido</span>
+      } @else if (parentForm.controls[controlName].errors?.['invalidDateRangeStart']) {
+        <span>La fecha de inicio no puede ser mayor a la fecha de fin</span>
+      } @else if (parentForm.controls[controlName].errors?.['invalidTimeRangeStart']) {
+        <span>La hora de inicio no puede ser mayor a la hora de fin</span>
+      } @else if (parentForm.controls[controlName].errors?.['invalidDateTimeRangeStart']) {
+        <span>La fecha y hora de inicio no pueden ser mayores a la fecha y hora de fin</span>
+      } @else if (parentForm.controls[controlName].errors?.['invalidDateRangeEnd']) {
+        <span>La fecha de fin no puede ser menor a la fecha de inicio</span>
+      }
+
+    </div>
+  }
+</div>
+
+
+
+
+
+

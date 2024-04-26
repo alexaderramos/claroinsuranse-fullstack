@@ -1,0 +1,71 @@
+<div class="main-page">
+  <div class="container">
+    <div class="row mt-5 d-flex justify-content-center align-items-center">
+      <div class="col-md-8 ">
+        <div class="card w-100">
+          <div class="card-header">
+            <h3 class="text-center">Register admin</h3>
+          </div>
+          <div class="card-body">
+
+            <form [formGroup]="registerForm">
+              <div class="form-group">
+                <app-custom-input
+                  labelText="Name"
+                  [parentForm]="registerForm"
+                  controlName="name"
+                ></app-custom-input>
+              </div>
+              <div class="form-group mt-3">
+                <app-custom-input
+                  labelText="Last name"
+                  [parentForm]="registerForm"
+                  controlName="last_name"
+                ></app-custom-input>
+              </div>
+              <div class="form-group mt-3">
+                <app-custom-input
+                  labelText="Email"
+                  [parentForm]="registerForm"
+                  controlName="email"
+                  type="email"
+                ></app-custom-input>
+              </div>
+              <div class="form-group mt-3">
+                <app-custom-input
+                  toolTip="La contraseña debe tener al menos 8 caracteres, una letra mayúscula, una letra minúscula y un número"
+                  labelText="Password"
+                  [parentForm]="registerForm"
+                  controlName="password"
+                  type="password"
+                ></app-custom-input>
+              </div>
+              <div class="form-group mt-3">
+                <app-custom-input
+                  labelText="Password confirmation"
+                  [parentForm]="registerForm"
+                  customValidatorName="passwordNoMatch"
+                  customValidatorMessage="Las contraseñas no coinciden"
+                  controlName="password_confirmation"
+                  type="password"
+                ></app-custom-input>
+              </div>
+              <div class="form-group">
+                <button
+                  type="submit"
+                  class="btn btn-primary mt-3 w-100"
+                  [disabled]="registerForm.invalid"
+                >
+                  Login
+                </button>
+              </div>
+
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

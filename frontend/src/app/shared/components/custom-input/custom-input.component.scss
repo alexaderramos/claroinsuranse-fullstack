@@ -1,0 +1,32 @@
+.btn-tooltip {
+  color: var(--info);
+  background: transparent;
+  padding: 0;
+  height: 100%;
+  border: none;
+  top: -20px;
+  position: relative;
+
+  ng-icon{
+    position: absolute;
+
+  }
+}
+
+.password-toggle {
+  position: relative;
+
+  button.password-toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    position: absolute;
+    width: auto;
+    right: 0px;
+    top: -25px;
+
+    border: none;
+    background-color: transparent;
+  }
+}

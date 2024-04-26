@@ -1,0 +1,47 @@
+<div class="main-page">
+  <div class="container">
+    <div class="row mt-5 d-flex justify-content-center align-items-center">
+      <div class="col-md-8 ">
+        <div class="card w-100">
+          <div class="card-header">
+            <h3 class="text-center">Login</h3>
+          </div>
+          <div class="card-body">
+
+            <form [formGroup]="loginForm">
+              <div class="form-group">
+                <app-custom-input
+                  labelText="Email"
+                  [parentForm]="loginForm"
+                  controlName="email"
+                  type="email"
+                ></app-custom-input>
+              </div>
+              <div class="form-group mt-3">
+                <app-custom-input
+                  labelText="Password"
+                  [parentForm]="loginForm"
+                  controlName="password"
+                  type="password"
+                ></app-custom-input>
+              </div>
+             <div class="form-group">
+               <button
+                 type="submit"
+                 class="btn btn-primary mt-3 w-100"
+                 [disabled]="loginForm.invalid"
+                 (click)="sendForm()"
+               >
+                 Login
+               </button>
+             </div>
+
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
