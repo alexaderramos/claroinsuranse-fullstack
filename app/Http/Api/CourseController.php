@@ -76,7 +76,6 @@ class CourseController
                 'message' => 'An error occurred'
             ], 500);
         }
-
     }
 
     /**
