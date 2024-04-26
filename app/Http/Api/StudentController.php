@@ -66,13 +66,16 @@ class StudentController extends Controller
 
     public function destroy(string $id)
     {
+        DB::beginTransaction();
         try {
             $student = Student::findOrFail($id);
             $student->delete();
+            DB::commit();
             return new JsonResponse(['message' => 'Student deleted'], 200);
         } catch (ModelNotFoundException) {
             return new JsonResponse(['message' => 'Student not found'], 404);
         } catch (\Exception) {
+            DB::rollBack();
             return new JsonResponse(['message' => 'Error while deleting student'], 500);
         }
     }
@@ -93,16 +96,19 @@ class StudentController extends Controller
     public function enrollMassive(StudentEnrollMassiveRequest $request, int $student)
     {
 
+        DB::beginTransaction();
         try {
             $ids = $request->courses;
             $student = Student::findOrFail($student);
             $student->courses()->sync($ids);
             CourseStudent::where('student_id', $student->id)
                 ->whereIn('course_id', $ids)->update(['created_at' => now()->format('Y-m-d H:i:s')]);
+            DB::commit();
             return new JsonResponse(['message' => 'Student enrolled successfully'], 200);
         } catch (ModelNotFoundException) {
             return new JsonResponse(['message' => 'Student not found'], 404);
         } catch (\Exception) {
+            DB::rollBack();
             return new JsonResponse(['message' => 'Error while enrolling student'], 500);
         }
     }
@@ -110,6 +116,7 @@ class StudentController extends Controller
     public function enroll(StudentEnrollRequest $request, int $student)
     {
 
+        DB::beginTransaction();
         try {
             $id = $request->course_id;
             $student = Student::findOrFail($student);
@@ -117,10 +124,12 @@ class StudentController extends Controller
                 'student_id' => $student->id,
                 'course_id' => $id,
             ]);
+            DB::commit();
             return new JsonResponse(['message' => 'Student enrolled successfully'], 201);
         } catch (ModelNotFoundException) {
             return new JsonResponse(['message' => 'Student not found'], 404);
         } catch (\Exception) {
+            DB::rollBack();
             return new JsonResponse(['message' => 'Error while enrolling student'], 500);
         }
     }

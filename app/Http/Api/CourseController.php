@@ -11,8 +11,6 @@ use Illuminate\Support\Facades\DB;
 use OpenApi\Annotations as OA;
 
 
-
-
 class CourseController
 {
     /**
@@ -67,8 +65,18 @@ class CourseController
      */
     public function store(CourseCreateRequest $request)
     {
-        $course = Course::create($request->validated());
-        return new JsonResponse($course, 201);
+        DB::beginTransaction();
+        try {
+            $course = Course::create($request->validated());
+            DB::commit();
+            return new JsonResponse($course, 201);
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            return new JsonResponse([
+                'message' => 'An error occurred'
+            ], 500);
+        }
+
     }
 
     /**
@@ -115,7 +123,7 @@ class CourseController
     public function update(CourseUpdateRequest $request, int $id)
     {
         DB::beginTransaction();
-        try{
+        try {
             $course = Course::findOrFail($id);
             $course->update($request->validated());
             DB::commit();
@@ -124,7 +132,8 @@ class CourseController
             return new JsonResponse([
                 'message' => 'Course not found'
             ], 404);
-        }catch (\Exception $exception){
+        } catch (\Exception $exception) {
+            DB::rollBack();
             return new JsonResponse([
                 'message' => 'An error occurred'
             ], 500);
@@ -174,9 +183,11 @@ class CourseController
      */
     public function destroy(int $id)
     {
+        DB::beginTransaction();
         try {
             $course = Course::findOrFail($id);
             $course = $course->delete();
+            DB::commit();
             return new JsonResponse([
                 'message' => 'Course deleted successfully'
             ], 200);
@@ -184,12 +195,12 @@ class CourseController
             return new JsonResponse([
                 'message' => 'Course not found'
             ], 404);
-        }
-        catch (\Exception) {
+        } catch (\Exception) {
+            DB::rollBack();
             return new JsonResponse([
                 'message' => 'An error occurred'
             ], 500);
-            }
+        }
 
     }
 
@@ -234,8 +245,7 @@ class CourseController
     public function show(int $id)
     {
         try {
-            $course = Course::findOrFail($id);
-            return $course;
+            return Course::findOrFail($id);
         } catch (ModelNotFoundException) {
             return new JsonResponse([
                 'message' => 'Course not found'
