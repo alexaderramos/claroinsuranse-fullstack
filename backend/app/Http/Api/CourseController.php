@@ -18,7 +18,7 @@ class CourseController
      *     path="/api/admin/courses",
      *     tags={"Courses"},
      *     summary="Get all courses",
-     *     operationId="getCourses",
+     *     operationId="getAllCourses",
      *     security={{"bearerAuth": {}}},
      *     @OA\Response(
      *         response=200,
@@ -27,12 +27,19 @@ class CourseController
      *             type="array",
      *             @OA\Items(ref="#/components/schemas/Course")
      *         )
+     *     ),
+     *     @OA\Response(
+     *         response=500,
+     *         description="Internal Server Error",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="message", type="string", example="An error occurred")
+     *         )
      *     )
      * )
      */
     public function index()
     {
-        return Course::all();
+        return Course::with('type')->get();
     }
 
 

@@ -9,52 +9,48 @@ use OpenApi\Annotations as OA;
 
 
 /**
+ * Class Course
+ *
+ * @package App\Models
  * @OA\Schema(
- *     schema="Course",
  *     title="Course",
  *     description="Course model",
+ *     required={"name", "start_date", "end_date", "course_type_id"},
  *     @OA\Property(
  *         property="id",
  *         type="integer",
+ *         description="Course ID",
  *         example=1
  *     ),
  *     @OA\Property(
  *         property="name",
  *         type="string",
- *         example="Course Name"
+ *         description="Course name",
+ *         example="Mathematics"
  *     ),
  *     @OA\Property(
  *         property="start_date",
  *         type="string",
  *         format="date",
- *         example="2024-04-25"
+ *         description="Course start date",
+ *         example="2024-05-01"
  *     ),
  *     @OA\Property(
  *         property="end_date",
  *         type="string",
  *         format="date",
- *         example="2024-05-25"
+ *         description="Course end date",
+ *         example="2024-07-01"
  *     ),
  *     @OA\Property(
  *         property="course_type_id",
  *         type="integer",
+ *         description="ID of the course type",
  *         example=1
  *     ),
  *     @OA\Property(
- *         property="created_at",
- *         type="string",
- *         format="date-time"
- *     ),
- *     @OA\Property(
- *         property="updated_at",
- *         type="string",
- *         format="date-time"
- *     ),
- *     @OA\Property(
- *         property="deleted_at",
- *         type="string",
- *         format="date-time",
- *         nullable=true
+ *         property="type",
+ *         ref="#/components/schemas/CourseType"
  *     )
  * )
  */
@@ -63,6 +59,8 @@ class Course extends Model
 
     use SoftDeletes;
     use HasFactory;
+
+    protected $with = ['type'];
 
     protected $table = "courses";
 
@@ -75,7 +73,7 @@ class Course extends Model
 
     public function type()
     {
-        return $this->belongsTo(CourseType::class);
+        return $this->belongsTo(CourseType::class,'course_type_id');
     }
 
     public function students()

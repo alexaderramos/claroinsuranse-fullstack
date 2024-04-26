@@ -2,6 +2,7 @@
     "openapi": "3.0.0",
     "info": {
         "title": "API docs",
+        "description": "API documentation for the Test project",
         "version": "0.1"
     },
     "paths": {
@@ -418,7 +419,7 @@
                     "Courses"
                 ],
                 "summary": "Get all courses",
-                "operationId": "getCourses",
+                "operationId": "getAllCourses",
                 "responses": {
                     "200": {
                         "description": "List of courses",
@@ -429,6 +430,22 @@
                                     "items": {
                                         "$ref": "#/components/schemas/Course"
                                     }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "An error occurred"
+                                        }
+                                    },
+                                    "type": "object"
                                 }
                             }
                         }
@@ -917,41 +934,62 @@
             "Course": {
                 "title": "Course",
                 "description": "Course model",
+                "required": [
+                    "name",
+                    "start_date",
+                    "end_date",
+                    "course_type_id"
+                ],
                 "properties": {
                     "id": {
+                        "description": "Course ID",
                         "type": "integer",
                         "example": 1
                     },
                     "name": {
+                        "description": "Course name",
                         "type": "string",
-                        "example": "Course Name"
+                        "example": "Mathematics"
                     },
                     "start_date": {
+                        "description": "Course start date",
                         "type": "string",
                         "format": "date",
-                        "example": "2024-04-25"
+                        "example": "2024-05-01"
                     },
                     "end_date": {
+                        "description": "Course end date",
                         "type": "string",
                         "format": "date",
-                        "example": "2024-05-25"
+                        "example": "2024-07-01"
                     },
                     "course_type_id": {
+                        "description": "ID of the course type",
                         "type": "integer",
                         "example": 1
                     },
-                    "created_at": {
-                        "type": "string",
-                        "format": "date-time"
+                    "type": {
+                        "$ref": "#/components/schemas/CourseType"
+                    }
+                },
+                "type": "object"
+            },
+            "CourseType": {
+                "title": "CourseType",
+                "description": "CourseType model",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "Course type ID",
+                        "type": "integer",
+                        "example": 1
                     },
-                    "updated_at": {
+                    "name": {
+                        "description": "Course type name",
                         "type": "string",
-                        "format": "date-time"
-                    },
-                    "deleted_at": {
-                        "type": "string",
-                        "format": "date-time",
-                        "nullable": true
+                        "example": "Online"
                     }
                 },
                 "type": "object"

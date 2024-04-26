@@ -28,8 +28,8 @@ export class MainComponent implements OnInit {
       url: '/home'
     },
     {
-      title: 'Settings',
-      url: 'settings'
+      title: 'Courses',
+      url: '/courses'
     }
   ]
   constructor(
