@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {AnalyticsService} from "../../core/analytics.service";
+import {AnalyticsTotalInterface} from "../../shared/interfaces/analytics.interface";
 
 @Component({
   selector: 'app-dashboard',
@@ -9,4 +11,17 @@ import { Component } from '@angular/core';
 })
 export class DashboardComponent {
 
+  constructor(
+    private analyticsService: AnalyticsService
+  ) {
+
+  }
+
+  totales: AnalyticsTotalInterface|undefined
+
+  ngOnInit() {
+    this.analyticsService.getTotales().subscribe((data) => {
+      this.totales = data;
+    });
+  }
 }

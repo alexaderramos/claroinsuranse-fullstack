@@ -4,6 +4,9 @@ import {CustomInputComponent} from "../../shared/components/custom-input/custom-
 import {LoadingBarService} from "@ngx-loading-bar/core";
 import {AuthService} from "../../core/auth/auth.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {NgbAlert} from "@ng-bootstrap/ng-bootstrap";
+import {NgIf} from "@angular/common";
+
 
 
 @Component({
@@ -12,7 +15,9 @@ import {ActivatedRoute, Router} from "@angular/router";
   templateUrl: './login.component.html',
   imports: [
     CustomInputComponent,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbAlert,
+    NgIf,
   ],
   styleUrl: './login.component.scss'
 })
@@ -22,6 +27,9 @@ export class LoginComponent {
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
   });
+
+  errorMessage: string = '';
+  hasError: boolean = false;
 
   constructor(
     private loader: LoadingBarService,
@@ -46,7 +54,10 @@ export class LoginComponent {
 
         },
         (error)=>{
-          console.log(error);
+          if (error.error.message){
+            this.hasError = true;
+            this.errorMessage = error.error.message;
+          }
           this.loader.complete();
         },
         ()=>{

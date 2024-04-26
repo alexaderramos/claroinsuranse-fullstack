@@ -3,9 +3,7 @@ import {CanMatch, Route, Router, UrlSegment, UrlTree} from '@angular/router';
 import {Observable, of, switchMap} from 'rxjs';
 import {AuthService} from '../auth.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class NoAuthGuard implements CanMatch {
   /**
    * Constructor

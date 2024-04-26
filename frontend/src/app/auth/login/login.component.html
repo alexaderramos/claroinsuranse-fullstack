@@ -8,6 +8,9 @@
           </div>
           <div class="card-body">
 
+            <ngb-alert *ngIf="hasError" (closed)="hasError=false" type="danger" >{{errorMessage}}</ngb-alert>
+
+
             <form [formGroup]="loginForm">
               <div class="form-group">
                 <app-custom-input

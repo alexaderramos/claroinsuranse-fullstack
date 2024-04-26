@@ -56,7 +56,7 @@ export class AuthService {
       switchMap((response: any) => {
 
         // Store the access token in the local storage
-        this.accessToken = response.access;
+        this.accessToken = response.access_token;
         this.refreshToken = response.refresh;
 
         // Set the authenticated flag to true
@@ -111,9 +111,7 @@ export class AuthService {
 
   signInUsingToken(): Observable<any> {
     // Renew token
-    return this._httpClient.post(`${API_URL}/auth/refresh/`, {
-      refresh: this.refreshToken
-    }).pipe(
+    return this._httpClient.post(`${API_URL}/auth/refresh/`,{}).pipe(
       catchError(() => {
 
         // Return false

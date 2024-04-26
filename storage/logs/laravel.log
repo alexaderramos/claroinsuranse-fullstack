@@ -1,0 +1,146 @@
+[2024-04-26 08:16:11] local.ERROR: Uncaught Symfony\Component\Finder\Exception\DirectoryNotFoundException: The "C:\laragon\www\claroinsuranse-fullstack\resources\views" directory does not exist. in C:\laragon\www\claroinsuranse-fullstack\backend\vendor\symfony\finder\Finder.php:646
+Stack trace:
+#0 C:\laragon\www\claroinsuranse-fullstack\backend\vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php(584): Symfony\Component\Finder\Finder->in('C:\\laragon\\www\\...')
+#1 Command line code(1): Illuminate\Filesystem\Filesystem->files('C:\\laragon\\www\\...')
+#2 Command line code(1): getViews('C:\\laragon\\www\\...', Object(Illuminate\Filesystem\Filesystem))
+#3 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught Symfony\\Component\\Finder\\Exception\\DirectoryNotFoundException: The \"C:\\laragon\\www\\claroinsuranse-fullstack\\resources\\views\" directory does not exist. in C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\finder\\Finder.php:646
+Stack trace:
+#0 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(584): Symfony\\Component\\Finder\\Finder->in('C:\\\\laragon\\\\www\\\\...')
+#1 Command line code(1): Illuminate\\Filesystem\\Filesystem->files('C:\\\\laragon\\\\www\\\\...')
+#2 Command line code(1): getViews('C:\\\\laragon\\\\www\\\\...', Object(Illuminate\\Filesystem\\Filesystem))
+#3 {main}
+  thrown at C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\finder\\Finder.php:646)
+[stacktrace]
+#0 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(245): Symfony\\Component\\ErrorHandler\\Error\\FatalError->__construct(message: ''Uncaught Symfo...', code: '0', error: '['type' => 1, '...', traceOffset: '0', traceArgs: '???', trace: '???')
+#1 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(232): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->fatalErrorFromPhpError(error: '['type' => 1, '...', traceOffset: '0')
+#2 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(256): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleShutdown()
+#3 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(0): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure:C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php:255-257}()
+#4 {main}
+"} 
+[2024-04-26 08:16:13] local.ERROR: The "--columns" option does not exist. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\RuntimeException(code: 0): The \"--columns\" option does not exist. at C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Input\\ArgvInput.php:217)
+[stacktrace]
+#0 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Input\\ArgvInput.php(144): Symfony\\Component\\Console\\Input\\ArgvInput->addLongOption('columns', 'uri,name,action...')
+#1 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Input\\ArgvInput.php(79): Symfony\\Component\\Console\\Input\\ArgvInput->parseLongOption('--columns=uri,n...')
+#2 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Input\\ArgvInput.php(68): Symfony\\Component\\Console\\Input\\ArgvInput->parseToken('--columns=uri,n...', true)
+#3 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Input\\Input.php(53): Symfony\\Component\\Console\\Input\\ArgvInput->parse()
+#4 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Command\\Command.php(238): Symfony\\Component\\Console\\Input\\Input->bind(Object(Symfony\\Component\\Console\\Input\\InputDefinition))
+#5 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(181): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#6 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Application.php(1049): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#7 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Application.php(318): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Foundation\\Console\\RouteListCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Application.php(169): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(196): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#10 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1183): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#11 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\artisan(13): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#12 {main}
+"} 
+[2024-04-26 08:16:16] local.ERROR: The "--columns" option does not exist. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\RuntimeException(code: 0): The \"--columns\" option does not exist. at C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Input\\ArgvInput.php:217)
+[stacktrace]
+#0 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Input\\ArgvInput.php(144): Symfony\\Component\\Console\\Input\\ArgvInput->addLongOption('columns', 'uri,name,action...')
+#1 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Input\\ArgvInput.php(79): Symfony\\Component\\Console\\Input\\ArgvInput->parseLongOption('--columns=uri,n...')
+#2 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Input\\ArgvInput.php(68): Symfony\\Component\\Console\\Input\\ArgvInput->parseToken('--columns=uri,n...', true)
+#3 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Input\\Input.php(53): Symfony\\Component\\Console\\Input\\ArgvInput->parse()
+#4 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Command\\Command.php(238): Symfony\\Component\\Console\\Input\\Input->bind(Object(Symfony\\Component\\Console\\Input\\InputDefinition))
+#5 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(181): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#6 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Application.php(1049): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#7 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Application.php(318): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Foundation\\Console\\RouteListCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Application.php(169): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(196): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#10 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1183): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#11 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\artisan(13): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#12 {main}
+"} 
+[2024-04-26 08:16:19] local.ERROR: The "--columns" option does not exist. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\RuntimeException(code: 0): The \"--columns\" option does not exist. at C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Input\\ArgvInput.php:217)
+[stacktrace]
+#0 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Input\\ArgvInput.php(144): Symfony\\Component\\Console\\Input\\ArgvInput->addLongOption('columns', 'uri,name,action...')
+#1 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Input\\ArgvInput.php(79): Symfony\\Component\\Console\\Input\\ArgvInput->parseLongOption('--columns=uri,n...')
+#2 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Input\\ArgvInput.php(68): Symfony\\Component\\Console\\Input\\ArgvInput->parseToken('--columns=uri,n...', true)
+#3 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Input\\Input.php(53): Symfony\\Component\\Console\\Input\\ArgvInput->parse()
+#4 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Command\\Command.php(238): Symfony\\Component\\Console\\Input\\Input->bind(Object(Symfony\\Component\\Console\\Input\\InputDefinition))
+#5 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(181): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#6 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Application.php(1049): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#7 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Application.php(318): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Foundation\\Console\\RouteListCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Application.php(169): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(196): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#10 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1183): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#11 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\artisan(13): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#12 {main}
+"} 
+[2024-04-26 09:28:20] local.ERROR: Uncaught Symfony\Component\Finder\Exception\DirectoryNotFoundException: The "C:\laragon\www\claroinsuranse-fullstack\resources\views" directory does not exist. in C:\laragon\www\claroinsuranse-fullstack\backend\vendor\symfony\finder\Finder.php:646
+Stack trace:
+#0 C:\laragon\www\claroinsuranse-fullstack\backend\vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php(584): Symfony\Component\Finder\Finder->in('C:\\laragon\\www\\...')
+#1 Command line code(1): Illuminate\Filesystem\Filesystem->files('C:\\laragon\\www\\...')
+#2 Command line code(1): getViews('C:\\laragon\\www\\...', Object(Illuminate\Filesystem\Filesystem))
+#3 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught Symfony\\Component\\Finder\\Exception\\DirectoryNotFoundException: The \"C:\\laragon\\www\\claroinsuranse-fullstack\\resources\\views\" directory does not exist. in C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\finder\\Finder.php:646
+Stack trace:
+#0 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(584): Symfony\\Component\\Finder\\Finder->in('C:\\\\laragon\\\\www\\\\...')
+#1 Command line code(1): Illuminate\\Filesystem\\Filesystem->files('C:\\\\laragon\\\\www\\\\...')
+#2 Command line code(1): getViews('C:\\\\laragon\\\\www\\\\...', Object(Illuminate\\Filesystem\\Filesystem))
+#3 {main}
+  thrown at C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\finder\\Finder.php:646)
+[stacktrace]
+#0 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(245): Symfony\\Component\\ErrorHandler\\Error\\FatalError->__construct(message: ''Uncaught Symfo...', code: '0', error: '['type' => 1, '...', traceOffset: '0', traceArgs: '???', trace: '???')
+#1 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(232): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->fatalErrorFromPhpError(error: '['type' => 1, '...', traceOffset: '0')
+#2 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(256): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleShutdown()
+#3 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(0): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure:C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php:255-257}()
+#4 {main}
+"} 
+[2024-04-26 09:28:22] local.ERROR: The "--columns" option does not exist. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\RuntimeException(code: 0): The \"--columns\" option does not exist. at C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Input\\ArgvInput.php:217)
+[stacktrace]
+#0 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Input\\ArgvInput.php(144): Symfony\\Component\\Console\\Input\\ArgvInput->addLongOption('columns', 'uri,name,action...')
+#1 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Input\\ArgvInput.php(79): Symfony\\Component\\Console\\Input\\ArgvInput->parseLongOption('--columns=uri,n...')
+#2 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Input\\ArgvInput.php(68): Symfony\\Component\\Console\\Input\\ArgvInput->parseToken('--columns=uri,n...', true)
+#3 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Input\\Input.php(53): Symfony\\Component\\Console\\Input\\ArgvInput->parse()
+#4 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Command\\Command.php(238): Symfony\\Component\\Console\\Input\\Input->bind(Object(Symfony\\Component\\Console\\Input\\InputDefinition))
+#5 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(181): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#6 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Application.php(1049): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#7 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Application.php(318): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Foundation\\Console\\RouteListCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Application.php(169): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(196): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#10 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1183): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#11 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\artisan(13): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#12 {main}
+"} 
+[2024-04-26 09:28:26] local.ERROR: The "--columns" option does not exist. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\RuntimeException(code: 0): The \"--columns\" option does not exist. at C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Input\\ArgvInput.php:217)
+[stacktrace]
+#0 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Input\\ArgvInput.php(144): Symfony\\Component\\Console\\Input\\ArgvInput->addLongOption('columns', 'uri,name,action...')
+#1 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Input\\ArgvInput.php(79): Symfony\\Component\\Console\\Input\\ArgvInput->parseLongOption('--columns=uri,n...')
+#2 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Input\\ArgvInput.php(68): Symfony\\Component\\Console\\Input\\ArgvInput->parseToken('--columns=uri,n...', true)
+#3 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Input\\Input.php(53): Symfony\\Component\\Console\\Input\\ArgvInput->parse()
+#4 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Command\\Command.php(238): Symfony\\Component\\Console\\Input\\Input->bind(Object(Symfony\\Component\\Console\\Input\\InputDefinition))
+#5 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(181): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#6 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Application.php(1049): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#7 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Application.php(318): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Foundation\\Console\\RouteListCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Application.php(169): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(196): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#10 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1183): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#11 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\artisan(13): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#12 {main}
+"} 
+[2024-04-26 09:28:29] local.ERROR: The "--columns" option does not exist. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\RuntimeException(code: 0): The \"--columns\" option does not exist. at C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Input\\ArgvInput.php:217)
+[stacktrace]
+#0 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Input\\ArgvInput.php(144): Symfony\\Component\\Console\\Input\\ArgvInput->addLongOption('columns', 'uri,name,action...')
+#1 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Input\\ArgvInput.php(79): Symfony\\Component\\Console\\Input\\ArgvInput->parseLongOption('--columns=uri,n...')
+#2 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Input\\ArgvInput.php(68): Symfony\\Component\\Console\\Input\\ArgvInput->parseToken('--columns=uri,n...', true)
+#3 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Input\\Input.php(53): Symfony\\Component\\Console\\Input\\ArgvInput->parse()
+#4 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Command\\Command.php(238): Symfony\\Component\\Console\\Input\\Input->bind(Object(Symfony\\Component\\Console\\Input\\InputDefinition))
+#5 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(181): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#6 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Application.php(1049): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#7 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Application.php(318): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Foundation\\Console\\RouteListCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Application.php(169): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(196): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#10 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1183): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#11 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\artisan(13): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#12 {main}
+"} 
+[2024-04-26 09:29:06] local.ERROR: There are no commands defined in the "ide-helper" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"ide-helper\" namespace. at C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Application.php:638)
+[stacktrace]
+#0 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Application.php(687): Symfony\\Component\\Console\\Application->findNamespace('ide-helper')
+#1 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Application.php(260): Symfony\\Component\\Console\\Application->find('ide-helper:gene...')
+#2 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\symfony\\console\\Application.php(169): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(196): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1183): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 C:\\laragon\\www\\claroinsuranse-fullstack\\backend\\artisan(13): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#6 {main}
+"} 
