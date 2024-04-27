@@ -33,9 +33,8 @@ La documentación se realizó con Swagger y se encuentra en la siguiente ruta:
 http://localhost:8000/api/documentation
 ```
 
-#### Capturas
-
-[//]: # (separador)
+Postman
+Collection [Ver Postman](https://www.postman.com/alexander15go/workspace/claroinsurance/collection/5024904-7b3bf729-2136-4060-90eb-7c05893ec339)
 
 ## Frontend
 
