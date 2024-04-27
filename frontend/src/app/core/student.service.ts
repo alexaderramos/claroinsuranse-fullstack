@@ -44,7 +44,9 @@ export class StudentService {
     return this.http.post(`${API_URL}/admin/students/unsubscribe`, {...body});
   }
 
-  getTypes(): Observable<CourseTypeModel[]> {
-    return this.http.get<CourseTypeModel[]>(`${API_URL}/admin/students/types`);
+  enroll(student_id:number, course_id:number): Observable<any> {
+    return this.http.post<any>(`${API_URL}/admin/students/${student_id}/enroll`,{
+      course_id
+    });
   }
 }

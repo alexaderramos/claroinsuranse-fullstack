@@ -1,0 +1,43 @@
+<div class="modal-header">
+  <h4 class="modal-title">Inscripción de cursos</h4>
+  <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body">
+  <app-show-errors [errorsHttp]="errors"></app-show-errors>
+  <form [formGroup]="form" action="">
+    <div class="form-group">
+      <label for="name">Seleccione un curso</label>
+      <select class="form-select"
+              (change)="changeCourse($event)"
+              [ngClass]="{'is-invalid': (form.controls['course_id'].invalid  && form.controls['course_id'].touched)    }"
+              id="course" name="course" formControlName="course_id" required>
+        <option value="" disabled selected>Seleccione un curso</option>
+        <option *ngFor="let course of courses" [ngValue]="course.id">{{ course.name }} - {{course.type.name}}</option>
+      </select>
+      @if (form.controls['course_id'].invalid && form.controls['course_id'].touched) {
+        <div class="invalid-feedback">
+          @if (form.controls['course_id'].errors?.['required']) {
+            <span>El campo es requerido</span>
+          }
+        </div>
+      }
+    </div>
+  </form>
+  @if (course) {
+    <div class="card mt-3">
+      <div class="card-body">
+        <h5 class="card-title">{{ course.name }}</h5>
+        <p class="card-text">
+          <strong>Modalidad:</strong> {{ course.type.name }}<br>
+          <strong>Fecha inicio:</strong> {{ course.start_date | date: 'dd/MM/yyyy' }}<br>
+          <strong>Fecha Fin:</strong> {{ course.end_date | date: 'dd/MM/yyyy' }}
+        </p>
+      </div>
+    </div>
+  }
+
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-secondary" (click)="activeModal.dismiss('cancel click')">Cancel</button>
+  <button [disabled]="form.invalid" type="button" ngbAutofocus class="btn btn-danger" (click)="sendCourse()">Ok</button>
+</div>

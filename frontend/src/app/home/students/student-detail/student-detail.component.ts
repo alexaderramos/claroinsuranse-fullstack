@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CourseModel} from "../../../shared/models/course.model";
 import {StudentModel} from "../../../shared/models/student.model";
 import {CourseService} from "../../../core/course.service";
@@ -11,6 +11,10 @@ import {
 } from "../../../shared/components/modals/modal-confirmation/modal-confirmation.component";
 import {StudentService} from "../../../core/student.service";
 import {DatePipe, NgIf} from "@angular/common";
+import {
+  ModalEnrollCourseComponent
+} from "../../../shared/components/modals/modal-enroll-course/modal-enroll-course.component";
+import {AlertService} from "../../../shared/services/alert.service";
 
 @Component({
   selector: 'app-student-detail',
@@ -22,16 +26,18 @@ import {DatePipe, NgIf} from "@angular/common";
   templateUrl: './student-detail.component.html',
   styleUrl: './student-detail.component.scss'
 })
-export class StudentDetailComponent {
+export class StudentDetailComponent implements OnInit {
   studentId: string = '';
   student: StudentModel | undefined;
   courses: CourseModel[] = [];
+  availableCourses: CourseModel[] = [];
 
   constructor(
     private studentService: StudentService,
     private activatedRoute: ActivatedRoute,
     private loadingService: LoadingBarService,
     private modalService: NgbModal,
+    private alertService: AlertService
   ) {
     this.activatedRoute.params.subscribe((params) => {
       this.studentId = params['id'];
@@ -82,6 +88,39 @@ export class StudentDetailComponent {
             this.courses = this.courses.filter(s => s.id !== course.id);
           })
       }
+    })
+
+  }
+
+  openModal() {
+    const modalRef = this.modalService.open(ModalEnrollCourseComponent, {
+      size: 'md',
+      centered: true,
+      backdrop: 'static',
+    });
+    modalRef.closed.subscribe((courseId: number) => {
+      console.log(courseId);
+    })
+
+    modalRef.componentInstance.sendForm.subscribe((course: CourseModel) => {
+      this.loadingService.start()
+      this.studentService.enroll(Number(this.studentId), Number(course.id))
+        .subscribe((response) => {
+            this.alertService.success(response.message);
+
+
+          }, (error) => {
+            modalRef.componentInstance.errors = error;
+            this.loadingService.stop();
+          },
+          () => {
+            modalRef.componentInstance.errors = undefined;
+            modalRef.close();
+            this.loadingService.complete();
+            this.studentService.getCourses(Number(this.studentId)).subscribe((courses) => {
+              this.courses = courses;
+            });
+          })
     })
 
   }
