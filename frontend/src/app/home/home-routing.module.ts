@@ -21,13 +21,14 @@ const routes: Routes = [
         path: 'courses',
         component: CoursesComponent
       },
-      {
-        path: 'courses/:id',
-        component: CourseDetailComponent
-      },
+
       {
         path: 'courses/register',
         component: CourseRegisterComponent
+      },
+      {
+        path: 'courses/:id',
+        component: CourseDetailComponent
       },
       {
         path: 'courses/:id/edit',

@@ -29,6 +29,8 @@ Route::prefix('auth')->group(function () {
 Route::middleware('auth:api')
     ->prefix('admin')
     ->group(function () {
+
+        Route::get('courses/types', [CourseController::class, 'types']);
         Route::apiResource('courses', CourseController::class);
         Route::get('courses/{course}/students', [CourseController::class, 'students']);
         Route::post('courses/unsubscribe', [CourseController::class, 'unsubscribe']);

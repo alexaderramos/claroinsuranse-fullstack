@@ -37,7 +37,7 @@ class CourseCreateRequest extends FormRequest
         return [
             'name' => 'required|max:50',
             'start_date' => 'required|date|date_format:Y-m-d',
-            'end_date' => 'required|date|date_format:Y-m-d',
+            'end_date' => 'required|date|date_format:Y-m-d|after:start_date',
             'course_type_id' => 'required|exists:course_types,id'
         ];
     }

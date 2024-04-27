@@ -5,6 +5,7 @@ import {Observable} from "rxjs";
 import {CourseFormModel, CourseModel} from "../shared/models/course.model";
 import {API_URL} from "../shared/constants/route.constants";
 import {StudentModel} from "../shared/models/student.model";
+import {CourseTypeModel} from "../shared/models/course-type.model";
 
 
 @Injectable()
@@ -41,5 +42,9 @@ export class CourseService {
 
   unsubscribeStudent(body: { course_id: number, student_id: number }): Observable<any> {
     return this.http.post(`${API_URL}/admin/courses/unsubscribe`, {...body});
+  }
+
+  getTypes(): Observable<CourseTypeModel[]> {
+    return this.http.get<CourseTypeModel[]>(`${API_URL}/admin/courses/types`);
   }
 }

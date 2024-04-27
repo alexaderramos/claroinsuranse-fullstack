@@ -7,6 +7,7 @@ use App\Http\Requests\Courses\CourseUpdateRequest;
 use App\Http\Requests\UnsubscribeUserCourseRequest;
 use App\Models\Course;
 use App\Models\CourseStudent;
+use App\Models\CourseType;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
@@ -375,6 +376,11 @@ class CourseController
             DB::rollBack();
             return new JsonResponse(['message' => 'Error while removing enroll'], 500);
         }
+    }
+
+    public function types()
+    {
+        return CourseType::select(['id', 'name'])->get();
     }
 
 }

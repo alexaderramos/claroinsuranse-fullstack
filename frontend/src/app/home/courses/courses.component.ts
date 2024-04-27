@@ -9,10 +9,13 @@ import {
   NgbDropdownAnchor,
   NgbDropdownButtonItem,
   NgbDropdownMenu,
-  NgbDropdownModule, NgbPagination
+  NgbDropdownModule, NgbModal, NgbPagination
 } from "@ng-bootstrap/ng-bootstrap";
 import {NgIcon, provideIcons} from "@ng-icons/core";
 import {Router} from "@angular/router";
+import {
+  ModalConfirmationComponent
+} from "../../shared/components/modals/modal-confirmation/modal-confirmation.component";
 
 @Component({
   selector: 'app-courses',
@@ -42,6 +45,7 @@ export class CoursesComponent implements OnInit {
     private courseService: CourseService,
     private loadingService: LoadingBarService,
     private router: Router,
+    private modalService: NgbModal
   ) {
   }
 
@@ -64,14 +68,30 @@ export class CoursesComponent implements OnInit {
   }
 
   goToUpdate(course: CourseModel) {
-
+    this.router.navigate(['/courses', course.id, 'edit']);
   }
 
   confirmDelete(course: CourseModel) {
-
+    const modalRef = this.modalService.open(ModalConfirmationComponent, {
+      size: 'md',
+      centered: true,
+      backdrop: 'static',
+    });
+    modalRef.closed.subscribe((result) => {
+      if (result){
+        this.courseService.delete(Number(course.id)).subscribe(
+          () => {
+            this.courses = this.courses.filter(c => c.id !== course.id);
+          },
+          error => {
+          }
+        )
+      }
+    })
+    modalRef.componentInstance.message = 'Confirmar elimar el curso '+course.name;
   }
 
   goToCreate() {
-
+    this.router.navigateByUrl('/courses/register');
   }
 }
