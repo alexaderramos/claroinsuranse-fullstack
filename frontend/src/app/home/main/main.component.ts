@@ -4,10 +4,11 @@ import {AuthService} from "../../core/auth/auth.service";
 
 
 interface MenuItem {
-  title:string,
-  url:string
-  children?:MenuItem[]
+  title: string,
+  url: string
+  children?: MenuItem[]
 }
+
 @Component({
   selector: 'app-main',
   standalone: true,
@@ -22,7 +23,7 @@ interface MenuItem {
 export class MainComponent implements OnInit {
 
 
-  menus:MenuItem[] = [
+  menus: MenuItem[] = [
     {
       title: 'Dashboard',
       url: '/home'
@@ -30,8 +31,13 @@ export class MainComponent implements OnInit {
     {
       title: 'Courses',
       url: '/courses'
+    },
+    {
+      title: 'Estudiantes',
+      url: '/students'
     }
   ]
+
   constructor(
     private authService: AuthService,
     private activeRoute: ActivatedRoute

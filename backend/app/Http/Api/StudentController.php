@@ -20,7 +20,7 @@ class StudentController extends Controller
 
     public function index()
     {
-        return Student::all();
+        return Student::orderBy('last_name')->get();
     }
 
 

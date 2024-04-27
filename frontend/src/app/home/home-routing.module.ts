@@ -6,6 +6,8 @@ import {MainComponent} from "./main/main.component";
 import {CoursesComponent} from "./courses/courses.component";
 import {CourseRegisterComponent} from "./courses/course-register/course-register.component";
 import {CourseDetailComponent} from "./courses/course-detail/course-detail.component";
+import {StudentsComponent} from "./students/students.component";
+import {StudentRegisterComponent} from "./students/student-register/student-register.component";
 
 const routes: Routes = [
   {
@@ -19,21 +21,48 @@ const routes: Routes = [
       },
       {
         path: 'courses',
-        component: CoursesComponent
+        children: [
+          {
+            path: '',
+            component: CoursesComponent
+          },
+          {
+            path: 'register',
+            component: CourseRegisterComponent
+          },
+          {
+            path: ':id',
+            component: CourseDetailComponent
+          },
+          {
+            path: ':id/edit',
+            component: CourseRegisterComponent
+          },
+        ]
+      },
+      {
+        path: 'students',
+        children: [
+          {
+            path: '',
+            component: StudentsComponent
+          },
+          {
+            path: 'register',
+            component: StudentRegisterComponent
+          },
+          {
+            path: ':id',
+            component: CourseDetailComponent
+          },
+          {
+            path: ':id/edit',
+            component: StudentRegisterComponent
+          },
+        ]
       },
 
-      {
-        path: 'courses/register',
-        component: CourseRegisterComponent
-      },
-      {
-        path: 'courses/:id',
-        component: CourseDetailComponent
-      },
-      {
-        path: 'courses/:id/edit',
-        component: CourseRegisterComponent
-      },
+
       {
         path: '',
         redirectTo: 'home',
