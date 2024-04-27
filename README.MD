@@ -35,8 +35,6 @@ http://localhost:8000/api/documentation
 
 #### Capturas
 
-
-
 [//]: # (separador)
 
 ## Frontend
@@ -49,6 +47,7 @@ El frontend fue desarrollado en Angular 17 y se encuentra en la carpeta `fronten
 cd frontend
 npm install
 ```
+
 ### Iniciar servidor de desarrollo
 
 ```bash
@@ -68,12 +67,20 @@ change any of the source files.
 
 ### Backend
 
-<img alt="Swagger" height="auto" src="./docs/imgs/swagger_1.png" title="Swagger" width="600"/>
-<img alt="Swagger" height="auto" src="./docs/imgs/swagger_2.png" title="Swagger" width="600"/>
+<img alt="Swagger" height="auto" src="docs/images/swagger_1.png" title="Swagger" width="600"/>
+<img alt="Swagger" height="auto" src="docs/images/swagger_2.png" title="Swagger" width="600"/>
 
 ### Frontend
 
-## Further help
+<img alt="Swagger" height="auto" src="docs/images/login.png" title="Swagger" width="600"/>
+<img alt="Swagger" height="auto" src="docs/images/dashboard.png" title="Swagger" width="600"/>
+<img alt="Swagger" height="auto" src="docs/images/courses.png" title="Swagger" width="600"/>
+<img alt="Swagger" height="auto" src="docs/images/course_detail.png" title="Swagger" width="600"/>
+<img alt="Swagger" height="auto" src="docs/images/students.png" title="Swagger" width="600"/>
+<img alt="Swagger" height="auto" src="docs/images/student_detail.png" title="Swagger" width="600"/>
+<img alt="Swagger" height="auto" src="docs/images/enroll.png" title="Swagger" width="600"/>
 
-To get more help on the Angular CLI use `ng help` or go check out
-the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Autor
+
+[//]: # (aLEXANDER RAMOS Y URL GITHUB)
+Alexander Ramos - [Github](https://github.com/alexaderramos)
