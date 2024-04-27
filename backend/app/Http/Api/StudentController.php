@@ -29,6 +29,8 @@ class StudentController extends Controller
         DB::beginTransaction();
         try {
             $student = Student::create($request->validated());
+            DB::commit();
+            return response()->json([], 201);
         } catch (\Exception $e) {
             DB::rollBack();
             return response()->json(['message' => 'Error while creating student'], 500);

@@ -8,6 +8,7 @@ import {CourseRegisterComponent} from "./courses/course-register/course-register
 import {CourseDetailComponent} from "./courses/course-detail/course-detail.component";
 import {StudentsComponent} from "./students/students.component";
 import {StudentRegisterComponent} from "./students/student-register/student-register.component";
+import {StudentDetailComponent} from "./students/student-detail/student-detail.component";
 
 const routes: Routes = [
   {
@@ -53,7 +54,7 @@ const routes: Routes = [
           },
           {
             path: ':id',
-            component: CourseDetailComponent
+            component: StudentDetailComponent
           },
           {
             path: ':id/edit',

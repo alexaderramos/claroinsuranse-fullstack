@@ -78,9 +78,8 @@ class Student extends Model
 
     public function courses(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
-        return $this->belongsToMany(
-            Course::class,
-            'course_students',
-        );
+        return $this->belongsToMany(Course::class, 'course_students', 'student_id', 'course_id')
+            ->whereNull('course_students.deleted_at')
+            ->withPivot(['id', 'student_id', 'course_id', 'created_at']);
     }
 }

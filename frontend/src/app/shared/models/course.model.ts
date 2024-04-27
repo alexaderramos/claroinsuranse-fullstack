@@ -1,4 +1,5 @@
 import {CourseTypeModel} from "./course-type.model";
+import {StudentCoursePivot} from "../interfaces/student-course-pivot";
 
 export class CourseModel {
   constructor(
@@ -8,6 +9,7 @@ export class CourseModel {
     public course_type_id: string,
     public type: CourseTypeModel,
     public id?: number,
+    public pivot?: StudentCoursePivot,
   ) {
   }
 }

@@ -1,0 +1,71 @@
+<div class="row">
+  <div class="col text-center">
+    <h1 *ngIf="student">{{student?.last_name}}, {{ student?.name }}</h1>
+  </div>
+</div>
+
+<div class="row mt-3">
+  <div class="col-sm-12 mt-2">
+    <div class="card">
+      <div class="card-header">
+        <h5>Datos personales</h5>
+      </div>
+      <div class="card-body">
+        @if (student) {
+          <div class="row">
+            <div class="col-md-6">
+              <p><strong>Nombre completo:</strong>{{student.last_name}}, {{ student.name }}</p>
+              <p><strong>Edad:</strong> {{ student.age }}</p>
+            </div>
+            <div class="col-md-6">
+              <p><strong>Cédula:</strong> {{ student.identification }}</p>
+              <p><strong>Email:</strong> {{ student.email }}</p>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+  <div class="col col-sm-12 mt-2">
+    <div class="card">
+      <div class="card-header">
+        <h5>Cursos inscritos ({{ courses.length}})</h5>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+            <tr>
+              <th>#</th>
+              <th>Nombre</th>
+              <th>Fecha inicio</th>
+              <th>Fecha fin</th>
+              <th>Modalidad</th>
+              <th>Fecha inscripción</th>
+              <th></th>
+            </tr>
+            </thead>
+            <tbody>
+              @if (!courses.length){
+                <tr>
+                  <td colspan="7" class="text-center">No hay cursos inscritos</td>
+                </tr>
+              }
+              @for (course of courses; track course.id; let i = $index) {
+                <tr>
+                  <td>{{ i + 1}}</td>
+                  <td>{{ course.name }}</td>
+                  <td>{{ course.start_date  | date : 'dd/MM/yyyy' }}</td>
+                  <td>{{ course.end_date  | date : 'dd/MM/yyyy' }}</td>
+                  <td>{{ course.type.name }}</td>
+                  <td>{{ course.pivot?.created_at |date:'dd/MM/yyyy hh:mm a' }}</td>
+                  <td><button (click)="openConfirmation(course)" class="btn btn-danger btn-close"></button></td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

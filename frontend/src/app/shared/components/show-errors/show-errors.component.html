@@ -1,0 +1,5 @@
+<ngb-alert *ngIf="errors.length" (closed)="errors=[]" type="danger" >
+  <ul>
+    <li *ngFor="let error of errors">{{error}}</li>
+  </ul>
+</ngb-alert>

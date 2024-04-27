@@ -4,7 +4,7 @@ import {Observable} from "rxjs";
 
 import {CourseFormModel, CourseModel} from "../shared/models/course.model";
 import {API_URL} from "../shared/constants/route.constants";
-import {StudentModel} from "../shared/models/student.model";
+import {StudentFormModel, StudentModel} from "../shared/models/student.model";
 import {CourseTypeModel} from "../shared/models/course-type.model";
 
 
@@ -24,11 +24,11 @@ export class StudentService {
     return this.http.get<StudentModel>(`${API_URL}/admin/students/${id}`);
   }
 
-  create(course: CourseFormModel): Observable<StudentModel> {
+  create(course: StudentFormModel): Observable<StudentModel> {
     return this.http.post<StudentModel>(`${API_URL}/admin/students`, course);
   }
 
-  update(course: CourseFormModel, id: number): Observable<StudentModel> {
+  update(course: StudentFormModel, id: number): Observable<StudentModel> {
     return this.http.put<StudentModel>(`${API_URL}/admin/students/${id}`, course);
   }
 
@@ -36,8 +36,8 @@ export class StudentService {
     return this.http.delete(`${API_URL}/admin/students/${id}`);
   }
 
-  getStudents(id: number): Observable<StudentModel[]> {
-    return this.http.get<StudentModel[]>(`${API_URL}/admin/students/${id}/students`);
+  getCourses(id: number): Observable<CourseModel[]> {
+    return this.http.get<CourseModel[]>(`${API_URL}/admin/students/${id}/courses`);
   }
 
   unsubscribeStudent(body: { course_id: number, student_id: number }): Observable<any> {

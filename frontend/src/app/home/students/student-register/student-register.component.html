@@ -1,1 +1,60 @@
-<p>student-register works!</p>
+<div class="row d-flex justify-content-center align-items-center">
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">{{title}}</h4>
+      </div>
+      <div class="card-body">
+        <app-show-errors [errorsHttp]="errors"></app-show-errors>
+        <form action="" [formGroup]="form">
+          <div class="form-group">
+            <app-custom-input [parentForm]="form"
+                              controlName="name"
+                              labelText="Nombre"
+            ></app-custom-input>
+          </div>
+
+
+          <div class="form-group mt-2">
+            <app-custom-input [parentForm]="form"
+                              controlName="last_name"
+                              labelText="Apellido"
+            ></app-custom-input>
+          </div>
+
+          <div class="form-group mt-2">
+            <app-custom-input [parentForm]="form"
+                              type="email"
+                              controlName="email"
+                              labelText="Email"
+            ></app-custom-input>
+          </div>
+
+          <div class="form-group mt-2">
+            <app-custom-input [parentForm]="form"
+                              type="number"
+                              controlName="age"
+                              labelText="Edad"
+            ></app-custom-input>
+          </div>
+
+          <div class="form-group mt-2">
+            <app-custom-input [parentForm]="form"
+                              controlName="identification"
+                              labelText="Cédula"
+            ></app-custom-input>
+          </div>
+
+          <div class="form-group mt-3">
+            <button
+              [disabled]="form.invalid"
+              (click)="saveStudent()"
+              class="btn btn-primary w-100">Guardar</button>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
