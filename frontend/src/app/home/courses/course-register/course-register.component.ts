@@ -9,6 +9,8 @@ import {CustomInputComponent} from "../../../shared/components/custom-input/cust
 import {NgClass, NgForOf} from "@angular/common";
 import {CourseModel} from "../../../shared/models/course.model";
 import {AlertService} from "../../../shared/services/alert.service";
+import {HttpErrorResponse} from "@angular/common/http";
+import {ShowErrorsComponent} from "../../../shared/components/show-errors/show-errors.component";
 
 @Component({
   selector: 'app-course-register',
@@ -17,7 +19,8 @@ import {AlertService} from "../../../shared/services/alert.service";
     ReactiveFormsModule,
     CustomInputComponent,
     NgForOf,
-    NgClass
+    NgClass,
+    ShowErrorsComponent
   ],
   templateUrl: './course-register.component.html',
   styleUrl: './course-register.component.scss'
@@ -29,6 +32,7 @@ export class CourseRegisterComponent implements OnInit {
   editMode: boolean = false;
   title: string = '';
   types: CourseTypeModel[] = [];
+  errors: HttpErrorResponse | undefined;
 
   form: FormGroup = new FormGroup({
     name: new FormControl('', [Validators.required]),
@@ -84,10 +88,16 @@ export class CourseRegisterComponent implements OnInit {
     this.loadingService.start();
     service.subscribe((course) => {
       this.alertService.success('Curso guardado correctamente');
+      if (!this.editMode) {
+        this.form.reset();
+      }
     }, error => {
       this.alertService.error(error.error.message);
+      this.errors = error;
       this.loadingService.stop();
+
     }, () => {
+      this.errors = undefined;
       this.loadingService.complete();
     });
 

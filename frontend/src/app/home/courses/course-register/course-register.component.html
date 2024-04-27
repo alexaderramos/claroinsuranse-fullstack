@@ -5,6 +5,7 @@
         <h4 class="card-title">{{title}}</h4>
       </div>
       <div class="card-body">
+        <app-show-errors [errorsHttp]="errors"></app-show-errors>
         <form action="" [formGroup]="form">
             <div class="form-group">
               <app-custom-input [parentForm]="form"
