@@ -1,0 +1,69 @@
+<div class="row">
+  <div class="col text-center">
+    <h1>{{ course?.name }}</h1>
+  </div>
+</div>
+
+<div class="row mt-3">
+  <div class="col-sm-12 mt-2">
+    <div class="card">
+      <div class="card-header">
+        <h5>Detalles del curso</h5>
+      </div>
+      <div class="card-body">
+        @if (course) {
+          <div class="row">
+            <div class="col-md-6">
+              <p><strong>Nombre:</strong> {{ course.name }}</p>
+              <p><strong>Modalidad:</strong> {{ course.type.name }}</p>
+            </div>
+            <div class="col-md-6">
+              <p><strong>Fecha inicio:</strong> {{ course.start_date | date:'dd/MM/yyyy' }}</p>
+              <p><strong>Fecha cierre:</strong> {{ course.end_date | date:'dd/MM/yyyy' }}</p>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+  <div class="col col-sm-12 mt-2">
+    <div class="card">
+      <div class="card-header">
+        <h5>Inscritos ({{ students.length}})</h5>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+            <tr>
+              <th>#</th>
+              <th>Apellidos</th>
+              <th>Nombre</th>
+              <th>Correo</th>
+              <th>Fecha de inscripción</th>
+              <th></th>
+            </tr>
+            </thead>
+            <tbody>
+              @if (!students.length){
+                <tr>
+                  <td colspan="5" class="text-center">No hay inscritos</td>
+                </tr>
+              }
+              @for (student of students; track student.id; let i = $index) {
+                <tr>
+                  <td>{{ i + 1}}</td>
+                  <td>{{ student.last_name }}</td>
+                  <td>{{ student.name }}</td>
+                  <td>{{ student.email }}</td>
+                  <td>{{ student.pivot?.created_at  | date:'dd/MM/yyyy hh:mm a' }}</td>
+                  <td><button (click)="openConfirmation(student)" class="btn btn-danger btn-close"></button></td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

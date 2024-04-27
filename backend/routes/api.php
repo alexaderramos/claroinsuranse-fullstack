@@ -31,11 +31,13 @@ Route::middleware('auth:api')
     ->group(function () {
         Route::apiResource('courses', CourseController::class);
         Route::get('courses/{course}/students', [CourseController::class, 'students']);
+        Route::post('courses/unsubscribe', [CourseController::class, 'unsubscribe']);
 
         Route::apiResource('students', StudentController::class);
         Route::get('students/{student}/courses', [StudentController::class, 'courses']);
         Route::post('students/{student}/enroll-massive', [StudentController::class, 'enrollMassive']);
         Route::post('students/{student}/enroll', [StudentController::class, 'enroll']);
+        Route::post('students/unsubscribe', [StudentController::class, 'unsubscribe']);
 
         Route::prefix('analytics')->group(function () {
             Route::get('courses-top', [\App\Http\Api\AnalyticsController::class, 'coursesTop']);

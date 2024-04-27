@@ -7,6 +7,7 @@ use App\Http\Requests\Students\StudentCreateRequest;
 use App\Http\Requests\Students\StudentEnrollMassiveRequest;
 use App\Http\Requests\Students\StudentEnrollRequest;
 use App\Http\Requests\Students\StudentUpdateRequest;
+use App\Http\Requests\UnsubscribeUserCourseRequest;
 use App\Models\CourseStudent;
 use App\Models\Student;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -131,6 +132,24 @@ class StudentController extends Controller
         } catch (\Exception) {
             DB::rollBack();
             return new JsonResponse(['message' => 'Error while enrolling student'], 500);
+        }
+    }
+
+    public function unsubscribe(UnsubscribeUserCourseRequest $request)
+    {
+        DB::beginTransaction();
+        try {
+            $relation = CourseStudent::where('student_id', $request->student_id)
+                ->where('course_id', $request->course_id)
+                ->firstOrFail();
+            $relation->delete();
+            DB::commit();
+            return new JsonResponse(['message' => 'Unsubscribed successfully'], 200);
+        } catch (ModelNotFoundException) {
+            return new JsonResponse(['message' => 'Enroll not found'], 404);
+        } catch (\Exception) {
+            DB::rollBack();
+            return new JsonResponse(['message' => 'Error while removing enroll'], 500);
         }
     }
 }

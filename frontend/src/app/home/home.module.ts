@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
@@ -10,7 +10,7 @@ import {NgbDropdownItem, NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {LoadingBarModule} from "@ngx-loading-bar/core";
 import {CourseService} from "../core/course.service";
 import {SharedModule} from "../shared/shared.module";
-// import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
+
 
 
 @NgModule({
@@ -19,6 +19,7 @@ import {SharedModule} from "../shared/shared.module";
     AnalyticsService,
     CourseService,
     provideCharts(withDefaultRegisterables()),
+
   ],
   imports: [
     CommonModule,
@@ -28,5 +29,6 @@ import {SharedModule} from "../shared/shared.module";
     NgbModule,
     LoadingBarModule,
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class HomeModule { }

@@ -4,7 +4,9 @@ namespace App\Http\Api;
 
 use App\Http\Requests\Courses\CourseCreateRequest;
 use App\Http\Requests\Courses\CourseUpdateRequest;
+use App\Http\Requests\UnsubscribeUserCourseRequest;
 use App\Models\Course;
+use App\Models\CourseStudent;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
@@ -308,7 +310,7 @@ class CourseController
     {
         try {
             $course = Course::findOrFail($id);
-            return $course->students;
+            return $course->students()->orderBy('last_name',)->get();
         } catch (ModelNotFoundException) {
             return new JsonResponse([
                 'message' => 'Course not found'
@@ -320,6 +322,59 @@ class CourseController
 
         }
 
+    }
+
+    /**
+     * @OA\Post(
+     *     path="/api/admin/courses/unsubscribe",
+     *     tags={"Courses"},
+     *     summary="Unsubscribe user from course",
+     *     operationId="unsubscribeUserFromCourse",
+     *     security={{"bearerAuth": {}}},
+     *     @OA\RequestBody(
+     *         required=true,
+     *         description="Unsubscribe user from course request",
+     *         @OA\JsonContent(ref="#/components/schemas/UnsubscribeUserCourseRequest")
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="User unsubscribed successfully",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="message", type="string", example="Unsubscribed successfully")
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=404,
+     *         description="Enroll not found",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="message", type="string", example="Enroll not found")
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=500,
+     *         description="Error while removing enroll",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="message", type="string", example="Error while removing enroll")
+     *         )
+     *     )
+     * )
+     */
+    public function unsubscribe(UnsubscribeUserCourseRequest $request)
+    {
+        DB::beginTransaction();
+        try {
+            $relation = CourseStudent::where('student_id', $request->student_id)
+                ->where('course_id', $request->course_id)
+                ->firstOrFail();
+            $relation->delete();
+            DB::commit();
+            return new JsonResponse(['message' => 'Unsubscribed successfully'], 200);
+        } catch (ModelNotFoundException) {
+            return new JsonResponse(['message' => 'Enroll not found'], 404);
+        } catch (\Exception) {
+            DB::rollBack();
+            return new JsonResponse(['message' => 'Error while removing enroll'], 500);
+        }
     }
 
 }

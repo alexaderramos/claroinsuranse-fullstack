@@ -807,6 +807,81 @@
                     }
                 ]
             }
+        },
+        "/api/admin/courses/unsubscribe": {
+            "post": {
+                "tags": [
+                    "Courses"
+                ],
+                "summary": "Unsubscribe user from course",
+                "operationId": "unsubscribeUserFromCourse",
+                "requestBody": {
+                    "description": "Unsubscribe user from course request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UnsubscribeUserCourseRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "User unsubscribed successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unsubscribed successfully"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Enroll not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Enroll not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error while removing enroll",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Error while removing enroll"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
         }
     },
     "components": {
@@ -927,6 +1002,26 @@
                     "course_type_id": {
                         "type": "integer",
                         "example": 1
+                    }
+                },
+                "type": "object"
+            },
+            "UnsubscribeUserCourseRequest": {
+                "title": "Unsubscribe User from Course Request",
+                "required": [
+                    "course_id",
+                    "student_id"
+                ],
+                "properties": {
+                    "course_id": {
+                        "description": "ID of the course",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "student_id": {
+                        "description": "ID of the student",
+                        "type": "integer",
+                        "example": "1"
                     }
                 },
                 "type": "object"

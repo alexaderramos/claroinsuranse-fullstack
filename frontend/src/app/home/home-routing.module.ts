@@ -4,6 +4,8 @@ import {DashboardComponent} from "./dashboard/dashboard.component";
 import {AuthGuard} from "../core/auth/guards/auth.guard";
 import {MainComponent} from "./main/main.component";
 import {CoursesComponent} from "./courses/courses.component";
+import {CourseRegisterComponent} from "./courses/course-register/course-register.component";
+import {CourseDetailComponent} from "./courses/course-detail/course-detail.component";
 
 const routes: Routes = [
   {
@@ -18,6 +20,18 @@ const routes: Routes = [
       {
         path: 'courses',
         component: CoursesComponent
+      },
+      {
+        path: 'courses/:id',
+        component: CourseDetailComponent
+      },
+      {
+        path: 'courses/register',
+        component: CourseRegisterComponent
+      },
+      {
+        path: 'courses/:id/edit',
+        component: CourseRegisterComponent
       },
       {
         path: '',

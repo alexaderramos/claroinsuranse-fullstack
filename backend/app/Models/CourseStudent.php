@@ -19,12 +19,6 @@ class CourseStudent extends Model
 
     public $timestamps = true;
 
-    public function setCreatedAtAttribute($value)
-    {
-        $this->attributes['created_at'] = now()->format('Y-m-d H:i:s');
-    }
-
-
     public function course(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Course::class);
